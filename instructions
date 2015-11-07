@@ -13,3 +13,10 @@ cheezepizza = MenuItem(name= " Cheeze Pizza ", description = "blah blah blah " ,
 session.add(cheezepizza)
 session.commit()
 session.query(MenuItem).all()
+
+
+firstresult=session.query(Restaurant).first()
+firstresult.name
+
+
+items=session.query(MenuItems).all()

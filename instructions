@@ -22,3 +22,19 @@ firstresult.name
 items=session.query(MenuItem).all()
 for item in  items:
 	print item.name
+
+
+burgers = session.query(MenuItem).filter_by(name = 'Veggie Burger')
+for burger in burgers:
+	print burger.id
+	print burger.price
+	print burger.restaurant.name
+	print "\n"
+
+urbanBurger = session.query(MenuItem).filter_by(id = 2).one()
+
+print urbanBurger.price
+urbanBurger.price= '$2.9'
+
+session.add(urbanBurger)
+session.commit()

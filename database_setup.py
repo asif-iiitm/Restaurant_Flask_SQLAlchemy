@@ -18,6 +18,9 @@ class MenuItem(Base):
 	id = Column(Integer , primary_key = True)
 	description = Column(String(250))
 	price = Column(String(8))
+	course = Column(String(250))
+	restaurant_id=Column(Integer , ForeignKey('restaurant.id'))
+	restaurant = relationship(Restaurant)
 
 
 engine =create_engine('sqlite:///restaurantmenu.db')

@@ -1,5 +1,5 @@
 import sys
-form sqlalchemy import Column , ForeignKey , Integer , String
+from sqlalchemy import Column , ForeignKey , Integer , String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
@@ -9,7 +9,7 @@ Base=declarative_base()
 class Reataurant(Base):
 	__tablename__ = 'restaurant'
 	id = Column(Integer, primary_key=True)
-	name = Column(String(250), null=False)
+	name = Column(String(250), nullable=False)
 
 class MenuItem(Base):
 	__tablename__= 'menu_item'

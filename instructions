@@ -19,4 +19,6 @@ firstresult=session.query(Restaurant).first()
 firstresult.name
 
 
-items=session.query(MenuItems).all()
+items=session.query(MenuItem).all()
+for item in  items:
+	print item.name

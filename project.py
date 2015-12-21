@@ -15,18 +15,19 @@ DBSession=sessionmaker(bind=engine)
 session=DBSession()
 
 #Make API Endpoint (GET Request)
+"""
 @app.route('/restaurant/<int:restaurant_id>/menu/JSON')
 def restaurantMenuJSON(restaurant_id):
 	restaurant=session.query(Restaurant).filter_by(id=restaurant_id).one()
 	items = session.query(MenuItem).filter_by(restaurant_id = restaurant_id)
 	return jsonify(MenuItems=[i.serialize for i in items])
-
+"""
 @app.route('/')
 @app.route('/restaurant/<int:restaurant_id>/')
 def restaurantMenu(restaurant_id):
-	restaurant=session.query(Restaurant).filter_by(id=restaurant_id).one()
-	items = session.query(MenuItem).filter_by(restaurant_id = restaurant_id)
-	return render_template('menu.html',restaurant=restaurant,items=items)
+	restaurante=session.query(Restaurant).filter_by(id=restaurant_id).one()
+	itemse = session.query(MenuItem).filter_by(restaurant_id = restaurant_id)
+	return render_template('menu.html',restaurant=restaurante,items=itemse)
 	# output=''
 	# for i in items:
 	# 	output+=i.name
@@ -38,6 +39,7 @@ def restaurantMenu(restaurant_id):
 	# return output
 
 #Task 1 add new menu item
+
 @app.route('/restaurant/<int:restaurant_id>/new/', methods=['GET','POST'])
 def newMenuItem(restaurant_id):
 	if request.method=='POST':
@@ -49,6 +51,7 @@ def newMenuItem(restaurant_id):
 	#return "Task1"
 	else:
 		return render_template('newmenuitem.html',restaurant_id=restaurant_id)
+
 @app.route('/restaurant/<int:restaurant_id>/<int:menu_id>/edit/', methods=['GET','POST'])
 def editMenuItem(restaurant_id,menu_id):
 	editedItem=session.query(MenuItem).filter_by(id=menu_id).one()
@@ -70,7 +73,6 @@ def editMenuItem(restaurant_id,menu_id):
 @app.route('/restaurant/<int:restaurant_id>/<int:menu_id>/delete/')
 def deleteMenuItem(restaurant_id,menu_id):
 	return "Task3"
-
 
 if __name__ == '__main__':
 	app.secret_key='super_secret_key'

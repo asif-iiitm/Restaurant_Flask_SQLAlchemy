@@ -1,5 +1,4 @@
 a==1.0
-apt-xapian-index==0.45
 autocomplete==0.0.104
 bottle==0.12.8
 chardet==2.0.1

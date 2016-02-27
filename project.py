@@ -1,4 +1,4 @@
-from flask import Flask, render_template ,request , redirect , url_for , flash, jsonify
+from flask import Flask, render_template ,request , redirect , url_for , flash, jsonify 
 app=Flask(__name__)
 
 """
@@ -23,6 +23,11 @@ def restaurantMenuJSON(restaurant_id):
 	return jsonify(MenuItems=[i.serialize for i in items])
 
 @app.route('/')
+@app.route('/restaurant/')
+def restaurantLanding():
+	
+	return "a"
+
 @app.route('/restaurant/<int:restaurant_id>/')
 def restaurantMenu(restaurant_id):
 	restaurante=session.query(Restaurant).filter_by(id=restaurant_id).one()

@@ -1,6 +1,6 @@
 a==1.0
 autocomplete==0.0.104
-bottle==0.12.8
+bottle==0.12.20
 
 Flask==0.10.1
 google-api-python-client==1.4.2
